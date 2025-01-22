@@ -31,5 +31,9 @@
     "patchedDependencies": {
       "@radix-ui/react-popper": "patches/@radix-ui__react-popper.patch"
     }
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^4.0.0"
   }
 }

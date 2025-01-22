@@ -83,12 +83,7 @@ import { CreateChatThreadDialog } from '../Chat/CreateChatThreadDialog'
 import { MemberStatus } from '../MemberStatus'
 import { StatusPicker } from '../StatusPicker'
 
-const CreateProjectDialog = dynamic(
-  () => import('@/components/Projects/Create/CreateProjectDialog').then((mod) => mod.CreateProjectDialog),
-  {
-    ssr: false
-  }
-)
+import { CreateProjectDialog } from '@/components/Projects/Create/CreateProjectDialog'
 
 export function NavigationBar() {
   const isDesktop = useIsDesktopApp()

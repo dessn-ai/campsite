@@ -207,7 +207,7 @@ function SearchCallsIndexContent({ calls, hideProject }: { calls: Call[]; hidePr
   return calls.map((call) => <CallRow key={call.id} call={call} display='search' hideProject={hideProject} />)
 }
 
-function CallsIndexEmptyState({ project }: { project?: Project }) {
+export function CallsIndexEmptyState({ project }: { project?: Project }) {
   const router = useRouter()
   const isProjectCalls = router.pathname === '/[org]/projects/[projectId]/calls'
 

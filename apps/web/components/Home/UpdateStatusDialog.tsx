@@ -84,7 +84,7 @@ export function UpdateStatusDialog({ open, onOpenChange }: { open: boolean; onOp
   )
 }
 
-function StatusPickerContent({ onOpenChange }: { onOpenChange: (open: boolean) => void }) {
+export function StatusPickerContent({ onOpenChange }: { onOpenChange: (open: boolean) => void }) {
   const { scope } = useScope()
   const { data: currentUser } = useGetCurrentUser()
   const { data: member } = useGetOrganizationMember({ username: currentUser?.username ?? '' })

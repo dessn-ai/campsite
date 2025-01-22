@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --font-inter: Inter;
+}
+
 @layer base {
   * {
     -webkit-tap-highlight-color: transparent;
@@ -221,49 +225,45 @@ body.grabbing * {
   .smooth-gradient-scrim {
     @apply absolute inset-0;
 
-    background: linear-gradient(
-      180deg,
-      transparent 50%,
-      rgba(0, 0, 0, 0.004) 54%,
-      rgba(0, 0, 0, 0.01) 58%,
-      rgba(0, 0, 0, 0.03) 62%,
-      rgba(0, 0, 0, 0.05) 68%,
-      rgba(0, 0, 0, 0.09) 72%,
-      rgba(0, 0, 0, 0.13) 74%,
-      rgba(0, 0, 0, 0.17) 76%,
-      rgba(0, 0, 0, 0.22) 78%,
-      rgba(0, 0, 0, 0.26) 80%,
-      rgba(0, 0, 0, 0.3) 82%,
-      rgba(0, 0, 0, 0.34) 84%,
-      rgba(0, 0, 0, 0.36) 86%,
-      rgba(0, 0, 0, 0.38) 88%,
-      rgba(0, 0, 0, 0.39) 90%,
-      rgba(0, 0, 0, 0.4) 92%
-    );
+    background: linear-gradient(180deg,
+        transparent 50%,
+        rgba(0, 0, 0, 0.004) 54%,
+        rgba(0, 0, 0, 0.01) 58%,
+        rgba(0, 0, 0, 0.03) 62%,
+        rgba(0, 0, 0, 0.05) 68%,
+        rgba(0, 0, 0, 0.09) 72%,
+        rgba(0, 0, 0, 0.13) 74%,
+        rgba(0, 0, 0, 0.17) 76%,
+        rgba(0, 0, 0, 0.22) 78%,
+        rgba(0, 0, 0, 0.26) 80%,
+        rgba(0, 0, 0, 0.3) 82%,
+        rgba(0, 0, 0, 0.34) 84%,
+        rgba(0, 0, 0, 0.36) 86%,
+        rgba(0, 0, 0, 0.38) 88%,
+        rgba(0, 0, 0, 0.39) 90%,
+        rgba(0, 0, 0, 0.4) 92%);
   }
 
   .smooth-gradient-scrim::after {
     @apply pointer-events-none absolute inset-0 rounded-b-md content-[''];
 
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      transparent 8%,
-      rgba(0, 0, 0, 0) 16%,
-      rgba(0, 0, 0, 0.01) 24%,
-      rgba(0, 0, 0, 0.02) 28%,
-      rgba(0, 0, 0, 0.03) 36%,
-      rgba(0, 0, 0, 0.04) 42%,
-      rgba(0, 0, 0, 0.05) 48%,
-      rgba(0, 0, 0, 0.06) 52%,
-      rgba(0, 0, 0, 0.07) 58%,
-      rgba(0, 0, 0, 0.08) 64%,
-      rgba(0, 0, 0, 0.11) 72%,
-      rgba(0, 0, 0, 0.12) 78%,
-      rgba(0, 0, 0, 0.16) 84%,
-      rgba(0, 0, 0, 0.24) 92%,
-      rgba(0, 0, 0, 0.24) 100%
-    );
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        transparent 8%,
+        rgba(0, 0, 0, 0) 16%,
+        rgba(0, 0, 0, 0.01) 24%,
+        rgba(0, 0, 0, 0.02) 28%,
+        rgba(0, 0, 0, 0.03) 36%,
+        rgba(0, 0, 0, 0.04) 42%,
+        rgba(0, 0, 0, 0.05) 48%,
+        rgba(0, 0, 0, 0.06) 52%,
+        rgba(0, 0, 0, 0.07) 58%,
+        rgba(0, 0, 0, 0.08) 64%,
+        rgba(0, 0, 0, 0.11) 72%,
+        rgba(0, 0, 0, 0.12) 78%,
+        rgba(0, 0, 0, 0.16) 84%,
+        rgba(0, 0, 0, 0.24) 92%,
+        rgba(0, 0, 0, 0.24) 100%);
   }
 
   input,
@@ -299,7 +299,7 @@ body.grabbing * {
     --tweet-border: 1px solid theme(colors.white / 0.12);
   }
 
-  .tweet-media-max-height > div {
+  .tweet-media-max-height>div {
     max-height: 400px;
   }
 }
