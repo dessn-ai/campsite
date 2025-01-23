@@ -16,7 +16,7 @@ RUN chmod +x /compile_page.sh
 # Install bun globally
 RUN npm install -g bun
 
-RUN bun install
+RUN cd /home/user/.temp && bun install
 
 # Set final working directory back to root
 WORKDIR /home/user

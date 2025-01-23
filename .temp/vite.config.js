@@ -1,6 +1,5 @@
 import path from 'path'
 import react from '@vitejs/plugin-react'
-import EnvironmentPlugin from 'vite-plugin-environment'
 
 const tempDir = path.resolve(process.cwd())
 
@@ -23,8 +22,9 @@ const nextJsStubsPlugin = () => ({
 export default {
   port: 5173,
   root: tempDir,
-  plugins: [react({}), EnvironmentPlugin({}), nextJsStubsPlugin()],
+  plugins: [react({}), nextJsStubsPlugin()],
   server: {
+    host: '0.0.0.0',
     hmr: {
       overlay: false
     }

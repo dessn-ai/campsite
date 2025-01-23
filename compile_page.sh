@@ -29,4 +29,4 @@ git add .
 git commit -m "Initial commit"
 
 ping_server &
-cd /home/user && bun vite-server-dev.ts
+cd /home/user/.temp && bun run dev
