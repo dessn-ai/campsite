@@ -24,10 +24,10 @@ export default {
   root: tempDir,
   plugins: [react({}), nextJsStubsPlugin()],
   server: {
-    host: '0.0.0.0',
     hmr: {
       overlay: false
-    }
+    },
+    allowedHosts: true
   },
   resolve: {
     alias: {

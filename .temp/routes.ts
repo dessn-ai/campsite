@@ -345,12 +345,8 @@ addRoute({
 });
 
 
-// Add route for InvitePeopleDialog
-addRoute({
-  path: '/InvitePeopleDialog-c2171589',
-  label: 'InvitePeopleDialog',
-  componentId: 'InvitePeopleDialog-c2171589',
-});
+
+
 
 
 // Add route for CallsContent
