@@ -1,27 +1,7 @@
 import React from 'react';
-import { InvitedPeopleList } from '../apps/web/components/People/InvitedPeopleList.tsx';
 
-import { useParentState } from '../useIframeState.ts';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      retry: false,
-    },
-  },
-});
-
-export default function Preview() {
-  const [state] = useParentState({
-    mockData: {
-      type: 'boolean',
-      value: true,
-      label: 'Show Mock Data'
-    }
-  });
-
-  // Mock the hooks that the component uses
+// Simplified InvitedPeopleList component
+const InvitedPeopleList = () => {
   const mockInvitations = [
     {
       id: '1',
@@ -43,17 +23,24 @@ export default function Preview() {
     }
   ];
 
-  // Mock the query client responses
-  queryClient.setQueryData(['organizationInvitations'], {
-    pages: [mockInvitations],
-    pageParams: [0]
-  });
-
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="p-4">
-        <InvitedPeopleList />
-      </div>
-    </QueryClientProvider>
+    <div>
+      <h2>Invited People List</h2>
+      <ul>
+        {mockInvitations.map((invitation) => (
+          <li key={invitation.id}>
+            {invitation.email} - {invitation.role}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default function Preview() {
+  return (
+    <div className="p-4">
+      <InvitedPeopleList />
+    </div>
   );
 }

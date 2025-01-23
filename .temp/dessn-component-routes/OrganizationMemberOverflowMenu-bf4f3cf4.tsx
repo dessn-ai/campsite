@@ -1,7 +1,20 @@
 import React from 'react';
-import { OrganizationMemberOverflowMenu } from '../apps/web/components/People/PeopleList.tsx';
 
-import { useParentState } from '../useIframeState.ts';
+// Mock OrganizationMemberOverflowMenu component
+const OrganizationMemberOverflowMenu = ({ member }) => (
+  <div>
+    <h3>Organization Member Overflow Menu</h3>
+    <p>Member ID: {member.id}</p>
+    <p>Role: {member.role}</p>
+    <p>User: {member.user.display_name}</p>
+  </div>
+);
+
+// Mock useParentState hook
+const useParentState = (initialState) => {
+  const [state] = React.useState(initialState);
+  return [state];
+};
 
 export default function Preview() {
   const [state] = useParentState({

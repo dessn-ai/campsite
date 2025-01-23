@@ -1,7 +1,8 @@
-import React from 'react';
-import { InvitePeopleDialog } from '../apps/web/components/People/InvitePeopleDialog.tsx';
+import React from 'react'
 
-import { useParentState } from '../useIframeState.ts';
+import { InvitePeopleDialog } from '../apps/web/components/People/InvitePeopleDialog'
+import { ScopeProvider } from '../apps/web/contexts/scope'
+import { useIframeState, useParentState } from '../useIframeState'
 
 export default function Preview() {
   const [state, setState] = useParentState({
@@ -10,16 +11,22 @@ export default function Preview() {
       value: true,
       label: 'Dialog Open'
     }
-  });
+  })
 
   const handleOpenChange = (open: boolean) => {
-    setState('open', open);
-  };
+    setState('open', open)
+  }
+
+  const mockScope = {
+    organizationId: 'mock-org-id'
+  }
 
   return (
-    <InvitePeopleDialog
-      open={state.open.value}
-      onOpenChange={handleOpenChange}
-    />
-  );
+    <ScopeProvider value={mockScope}>
+      <div>
+        <button onClick={() => setState('open', true)}>Open Dialog</button>
+        <InvitePeopleDialog open={state.open.value} onOpenChange={handleOpenChange} />
+      </div>
+    </ScopeProvider>
+  )
 }

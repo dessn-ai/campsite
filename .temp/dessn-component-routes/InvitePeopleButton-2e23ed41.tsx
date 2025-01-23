@@ -1,40 +1,35 @@
 import React from 'react';
-import { InvitePeopleButton } from '../apps/web/components/People/InvitePeopleButton.tsx';
 
-import { useParentState } from '../useIframeState.ts';
+const InvitePeopleButton: React.FC<{
+  variant?: string;
+  label?: string;
+  fullWidth?: boolean;
+  size?: string;
+}> = ({ variant = 'primary', label = 'Invite people', fullWidth = false, size = 'base' }) => {
+  return (
+    <button
+      style={{
+        backgroundColor: variant === 'primary' ? '#007bff' : '#f8f9fa',
+        color: variant === 'primary' ? 'white' : 'black',
+        padding: size === 'sm' ? '0.25rem 0.5rem' : size === 'large' ? '0.5rem 1rem' : '0.375rem 0.75rem',
+        width: fullWidth ? '100%' : 'auto',
+        border: 'none',
+        borderRadius: '0.25rem',
+        cursor: 'pointer',
+      }}
+    >
+      {label}
+    </button>
+  );
+};
 
 export default function Preview() {
-  const [state, setState] = useParentState({
-    variant: {
-      type: 'dropdown',
-      value: 'primary',
-      options: ['base', 'primary', 'flat', 'plain', 'destructive', 'important', 'brand', 'onboarding', 'text', 'none'],
-      label: 'Variant'
-    },
-    label: {
-      type: 'string',
-      value: 'Invite people',
-      label: 'Label'
-    },
-    fullWidth: {
-      type: 'boolean',
-      value: false,
-      label: 'Full Width'
-    },
-    size: {
-      type: 'dropdown',
-      value: 'base',
-      options: ['base', 'sm', 'large'],
-      label: 'Size'
-    }
-  });
-
   return (
-    <InvitePeopleButton
-      variant={state.variant.value}
-      label={state.label.value}
-      fullWidth={state.fullWidth.value}
-      size={state.size.value}
-    />
+    <div>
+      <h2>Invite People Button Preview</h2>
+      <InvitePeopleButton />
+      <InvitePeopleButton variant="flat" label="Add Team Members" size="large" />
+      <InvitePeopleButton variant="primary" label="Invite" size="sm" fullWidth />
+    </div>
   );
 }

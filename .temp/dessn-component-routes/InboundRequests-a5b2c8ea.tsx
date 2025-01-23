@@ -1,7 +1,7 @@
 import React from 'react';
 import { InboundRequests } from '../apps/web/components/People/InboundRequests.tsx';
-
 import { useParentState } from '../useIframeState.ts';
+import { ScopeProvider } from '../apps/web/contexts/scope';
 
 export default function Preview() {
   const [state] = useParentState({
@@ -29,7 +29,23 @@ export default function Preview() {
     }
   });
 
+  // Create a mock scope object
+  const mockScope = {
+    organization: {
+      id: 'mock-org-id',
+      name: 'Mock Organization',
+    },
+    user: {
+      id: 'mock-user-id',
+      name: 'Mock User',
+      email: 'mock@example.com',
+    },
+    // Add any other necessary properties for the scope
+  };
+
   return (
-    <InboundRequests />
+    <ScopeProvider value={mockScope}>
+      <InboundRequests />
+    </ScopeProvider>
   );
 }

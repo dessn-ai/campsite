@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactivateMemberDialog } from '../apps/web/components/People/ReactivateMemberDialog.tsx';
-
+import { ScopeProvider } from '../apps/web/contexts/scope.tsx';
 import { useParentState } from '../useIframeState.ts';
 
 export default function Preview() {
@@ -51,11 +51,20 @@ export default function Preview() {
     }
   };
 
+  // Mock scope value
+  const mockScope = {
+    organization: { id: 'org123', name: 'Mock Organization' },
+    project: { id: 'proj456', name: 'Mock Project' },
+    // Add any other necessary scope properties
+  };
+
   return (
-    <ReactivateMemberDialog
-      member={member}
-      open={state.open.value}
-      onOpenChange={(open) => setState('open', open)}
-    />
+    <ScopeProvider value={mockScope}>
+      <ReactivateMemberDialog
+        member={member}
+        open={state.open.value}
+        onOpenChange={(open) => setState('open', open)}
+      />
+    </ScopeProvider>
   );
 }

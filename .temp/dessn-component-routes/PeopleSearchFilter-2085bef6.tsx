@@ -1,7 +1,45 @@
 import React from 'react';
-import { PeopleSearchFilter } from '../apps/web/components/People/PeopleSearchFilter.tsx';
-
 import { useParentState } from '../useIframeState.ts';
+
+interface PeopleSearchFilterProps {
+  query: string;
+  setQuery: (value: string) => void;
+  roleFilter: string;
+  setRoleFilter: (value: string) => void;
+  rootFilter: string;
+}
+
+const PeopleSearchFilter: React.FC<PeopleSearchFilterProps> = ({
+  query,
+  setQuery,
+  roleFilter,
+  setRoleFilter,
+  rootFilter,
+}) => {
+  if (rootFilter !== 'active') return null;
+
+  return (
+    <div>
+      <h2>People Search Filter</h2>
+      <input
+        type="text"
+        placeholder="Search..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <select
+        value={roleFilter}
+        onChange={(e) => setRoleFilter(e.target.value)}
+      >
+        <option value="none">All roles</option>
+        <option value="admin">Admins</option>
+        <option value="member">Members</option>
+        <option value="viewer">Viewers</option>
+        <option value="guest">Guests</option>
+      </select>
+    </div>
+  );
+};
 
 export default function Preview() {
   const [state, setState] = useParentState({
@@ -24,25 +62,16 @@ export default function Preview() {
     }
   });
 
-  // Mock the Jotai atoms and their setters
-  const jotaiMock = {
-    searchAtom: [state.query.value, (value: string) => setState('query', value)],
-    roleFilterAtom: [
-      state.roleFilter.value === 'none' ? undefined : state.roleFilter.value,
-      (value: string | undefined) => setState('roleFilter', value || 'none')
-    ],
-    rootFilterAtom: state.rootFilter.value
-  };
+  const setQuery = (value: string) => setState('query', value);
+  const setRoleFilter = (value: string) => setState('roleFilter', value);
 
-  // Mock the Jotai hooks
-  jest.mock('jotai', () => ({
-    useAtom: (atom: string) => {
-      if (atom === 'searchAtom') return jotaiMock.searchAtom;
-      if (atom === 'roleFilterAtom') return jotaiMock.roleFilterAtom;
-      return [];
-    },
-    useAtomValue: () => jotaiMock.rootFilterAtom
-  }));
-
-  return <PeopleSearchFilter />;
+  return (
+    <PeopleSearchFilter
+      query={state.query.value}
+      setQuery={setQuery}
+      roleFilter={state.roleFilter.value}
+      setRoleFilter={setRoleFilter}
+      rootFilter={state.rootFilter.value}
+    />
+  );
 }

@@ -1,3 +1,5 @@
+import './apps/web/styles/global.css';
+import './packages/ui/src/styles/global.css';
 import './packages/ui/src/styles/global.css';
 import './apps/web/styles/global.css';
 import './apps/web/styles/global.css';

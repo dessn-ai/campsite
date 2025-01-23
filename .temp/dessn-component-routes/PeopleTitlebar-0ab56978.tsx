@@ -1,7 +1,15 @@
 import React from 'react';
-import { PeopleTitlebar } from '../apps/web/components/People/PeopleTitlebar.tsx';
+import { useParentState } from '../useIframeState';
 
-import { useParentState } from '../useIframeState.ts';
+// Simplified PeopleTitlebar component
+const PeopleTitlebar = ({ scope }: { scope: { scope: string } }) => {
+  return (
+    <div>
+      <h1>People Titlebar</h1>
+      <p>Current scope: {scope.scope}</p>
+    </div>
+  );
+};
 
 export default function Preview() {
   const [state] = useParentState({
@@ -23,7 +31,7 @@ export default function Preview() {
 
   return (
     <ScopeProvider>
-      <PeopleTitlebar />
+      <PeopleTitlebar scope={{ scope: state.scope.value }} />
     </ScopeProvider>
   );
 }

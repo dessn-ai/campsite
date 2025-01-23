@@ -1,6 +1,6 @@
 import React from 'react';
 import { RemoveInvitationDialog } from '../apps/web/components/People/RemoveInvitationDialog.tsx';
-
+import { ScopeProvider } from '../apps/web/contexts/scope.tsx';
 import { useParentState } from '../useIframeState.ts';
 
 export default function Preview() {
@@ -38,10 +38,12 @@ export default function Preview() {
   });
 
   return (
-    <RemoveInvitationDialog
-      invitation={state.invitation.value}
-      open={state.open.value}
-      onOpenChange={(open) => setState('open', open)}
-    />
+    <ScopeProvider value={{ organization: state.invitation.value.organization }}>
+      <RemoveInvitationDialog
+        invitation={state.invitation.value}
+        open={state.open.value}
+        onOpenChange={(open) => setState('open', open)}
+      />
+    </ScopeProvider>
   );
 }
