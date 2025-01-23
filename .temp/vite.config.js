@@ -25,7 +25,9 @@ export default {
   root: tempDir,
   plugins: [react({}), EnvironmentPlugin({}), nextJsStubsPlugin()],
   server: {
-    hmr: false
+    hmr: {
+      overlay: false
+    }
   },
   resolve: {
     alias: {

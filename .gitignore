@@ -98,3 +98,4 @@ dump.rdb
 # PostHog migrations and backups
 posthog_migration
 posthog_migration_batches
+logs
