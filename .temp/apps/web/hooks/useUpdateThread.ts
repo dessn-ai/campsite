@@ -1,0 +1,31 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { OrganizationsOrgSlugThreadsIdPutRequest } from "../../../packages/types/index.ts";
+import { useScope } from "../contexts/scope.tsx";
+import { useQueryNormalizer } from "../utils/normy/QueryNormalizerProvider.tsx";
+import { apiClient, setTypedQueryData } from "../utils/queryClient.ts";
+import { createNormalizedOptimisticUpdate } from "../utils/queryNormalization.ts";
+const putThreadsById = apiClient.organizations.putThreadsById();
+export function useUpdateThread({ threadId }: {
+    threadId: string;
+}) {
+    const { scope } = useScope();
+    const queryClient = useQueryClient();
+    const queryNormalizer = useQueryNormalizer();
+    return useMutation({
+        mutationFn: (data: OrganizationsOrgSlugThreadsIdPutRequest) => putThreadsById.request(`${scope}`, threadId, data),
+        onMutate: (data) => {
+            return createNormalizedOptimisticUpdate({
+                queryNormalizer,
+                type: 'thread',
+                id: threadId,
+                update: data
+            });
+        },
+        onSuccess: (updatedThread) => {
+            const getMembersByUsername = apiClient.organizations.getMembersByUsername();
+            updatedThread.other_members.forEach((member) => {
+                setTypedQueryData(queryClient, getMembersByUsername.requestKey(`${scope}`, member.user.username), member);
+            });
+        }
+    });
+}

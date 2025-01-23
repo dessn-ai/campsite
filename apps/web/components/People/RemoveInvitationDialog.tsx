@@ -1,3 +1,4 @@
+import React from 'react'
 import { useRemoveOrganizationInvitation } from 'hooks/useRemoveOrganizationInvitation'
 
 import { OrganizationInvitation } from '@campsite/types'
@@ -16,30 +17,35 @@ export function RemoveInvitationDialog(props: Props) {
 
   async function handleOnRemove() {
     await removeInvitationMutation.mutate({ id: invitation.id })
+    onOpenChange(false)
   }
+
+  if (!open) return null
 
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange} size='sm'>
-      <Dialog.Header>
-        <Dialog.Title>Remove invitation</Dialog.Title>
-        <Dialog.Description>{`Are you sure you want to remove the invitation for ${invitation.email}?`}</Dialog.Description>
-      </Dialog.Header>
+      <Dialog.Content>
+        <Dialog.Header>
+          <Dialog.Title>Remove invitation</Dialog.Title>
+          <Dialog.Description>{`Are you sure you want to remove the invitation for ${invitation.email}?`}</Dialog.Description>
+        </Dialog.Header>
 
-      <Dialog.Footer>
-        <Dialog.TrailingActions>
-          <Button variant='flat' onClick={() => onOpenChange(false)}>
-            Cancel
-          </Button>
-          <Button
-            variant='destructive'
-            onClick={handleOnRemove}
-            disabled={removeInvitationMutation.isPending}
-            autoFocus
-          >
-            {removeInvitationMutation.isPending ? 'Removing...' : 'Remove invitation'}
-          </Button>
-        </Dialog.TrailingActions>
-      </Dialog.Footer>
+        <Dialog.Footer>
+          <Dialog.TrailingActions>
+            <Button variant='flat' onClick={() => onOpenChange(false)}>
+              Cancel
+            </Button>
+            <Button
+              variant='destructive'
+              onClick={handleOnRemove}
+              disabled={removeInvitationMutation.isPending}
+              autoFocus
+            >
+              {removeInvitationMutation.isPending ? 'Removing...' : 'Remove invitation'}
+            </Button>
+          </Dialog.TrailingActions>
+        </Dialog.Footer>
+      </Dialog.Content>
     </Dialog.Root>
   )
 }

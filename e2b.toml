@@ -1,0 +1,19 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (cdm38safb6cxb1tob4xq) or template name (snowball-2) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox("snowball-2") # Sync sandbox
+# sandbox = await AsyncSandbox.create("snowball-2") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('snowball-2')
+
+template_id = "cdm38safb6cxb1tob4xq"
+dockerfile = "e2b.Dockerfile"
+template_name = "snowball-2"
+start_cmd = "/compile_page.sh"
+cpu_count = 4
+memory_mb = 4_096
+team_id = "332558e1-66dd-4985-abfd-b268b3801fb6"

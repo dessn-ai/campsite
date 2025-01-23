@@ -1,0 +1,37 @@
+import { PublicOrganization } from "../../../../packages/types/index.ts";
+import { Button } from "../../../../packages/ui/src/index.tsx";
+import * as Dialog from "../../../../packages/ui/src/Dialog/index.tsx";
+import { useDeleteAllNotifications } from "../../hooks/useDeleteAllNotifications.ts";
+interface Props {
+    mode: 'all' | 'read' | 'closed';
+    onClose: () => void;
+    organization?: PublicOrganization;
+    homeOnly?: boolean;
+}
+export function DeleteAllNotificationsDialog({ mode, onClose, organization, homeOnly }: Props) {
+    const deleteAll = useDeleteAllNotifications({ organization });
+    const action = mode === 'all' ? 'all of your' : 'your read';
+    return (<Dialog.Root open={mode !== 'closed'} onOpenChange={(open) => open && onClose()} size='sm'>
+      <Dialog.Header>
+        <Dialog.Title>Archive notifications</Dialog.Title>
+        <Dialog.Description>
+          {organization
+            ? `Are you sure you want to archive ${action} notifications in the ${organization.name} organization?`
+            : `Are you sure you want to archive ${action} notifications?`}
+        </Dialog.Description>
+      </Dialog.Header>
+
+      <Dialog.Footer>
+        <Dialog.TrailingActions>
+          <Button variant='flat' onClick={() => onClose()}>
+            Cancel
+          </Button>
+          <Button variant='destructive' onClick={() => deleteAll.mutate({ home_only: homeOnly, read_only: mode === 'read' }, {
+            onSuccess: onClose
+        })} disabled={deleteAll.isPending} autoFocus>
+            Archive
+          </Button>
+        </Dialog.TrailingActions>
+      </Dialog.Footer>
+    </Dialog.Root>);
+}
