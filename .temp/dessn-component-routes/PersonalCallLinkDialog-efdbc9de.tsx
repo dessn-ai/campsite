@@ -1,5 +1,5 @@
 import React from 'react';
-import { InvitePeopleDialog } from '../apps/web/components/People/InvitePeopleDialog.tsx';
+import { PersonalCallLinkDialog } from '../apps/web/components/Calls/PersonalCallLinkDialog.tsx';
 
 import { useParentState } from '../useIframeState.ts';
 
@@ -17,7 +17,7 @@ export default function Preview() {
   };
 
   return (
-    <InvitePeopleDialog
+    <PersonalCallLinkDialog
       open={state.open.value}
       onOpenChange={handleOpenChange}
     />

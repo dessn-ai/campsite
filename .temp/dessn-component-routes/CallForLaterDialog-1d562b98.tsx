@@ -1,5 +1,5 @@
 import React from 'react';
-import { InvitePeopleDialog } from '../apps/web/components/People/InvitePeopleDialog.tsx';
+import { CallForLaterDialog } from '../apps/web/components/Calls/CallForLaterDialog.tsx';
 
 import { useParentState } from '../useIframeState.ts';
 
@@ -12,14 +12,10 @@ export default function Preview() {
     }
   });
 
-  const handleOpenChange = (open: boolean) => {
-    setState('open', open);
-  };
-
   return (
-    <InvitePeopleDialog
+    <CallForLaterDialog
       open={state.open.value}
-      onOpenChange={handleOpenChange}
+      onOpenChange={(open) => setState('open', open)}
     />
   );
 }

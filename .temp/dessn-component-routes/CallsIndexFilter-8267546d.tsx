@@ -1,20 +1,20 @@
 import React from 'react';
-import { OrganizationInviteLinkField } from '../apps/web/components/People/OrganizationInviteLinkField.tsx';
+import { CallsIndexFilter } from '../apps/web/components/Calls/CallsIndexFilter.tsx';
 
 import { useParentState } from '../useIframeState.ts';
 
 export default function Preview() {
   const [state, setState] = useParentState({
-    onboarding: {
+    fullWidth: {
       type: 'boolean',
       value: false,
-      label: 'Onboarding Mode'
+      label: 'Full Width'
     }
   });
 
   return (
-    <OrganizationInviteLinkField
-      onboarding={state.onboarding.value}
+    <CallsIndexFilter
+      fullWidth={state.fullWidth.value}
     />
   );
 }

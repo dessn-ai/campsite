@@ -1,77 +1,53 @@
 import React from 'react';
+import { PeopleSearchFilter } from '../apps/web/components/People/PeopleSearchFilter.tsx';
 import { useParentState } from '../useIframeState.ts';
 
-interface PeopleSearchFilterProps {
-  query: string;
-  setQuery: (value: string) => void;
-  roleFilter: string;
-  setRoleFilter: (value: string) => void;
-  rootFilter: string;
-}
+// Mock Jotai
+const mockJotai = {
+  useAtom: (atom) => {
+    const [state, setState] = useParentState({
+      query: {
+        type: 'string',
+        value: '',
+        label: 'Search Query'
+      },
+      roleFilter: {
+        type: 'dropdown',
+        value: 'none',
+        options: ['none', 'admin', 'member', 'viewer', 'guest'],
+        label: 'Role Filter'
+      },
+      rootFilter: {
+        type: 'dropdown',
+        value: 'active',
+        options: ['active', 'inactive'],
+        label: 'Root Filter'
+      }
+    });
 
-const PeopleSearchFilter: React.FC<PeopleSearchFilterProps> = ({
-  query,
-  setQuery,
-  roleFilter,
-  setRoleFilter,
-  rootFilter,
-}) => {
-  if (rootFilter !== 'active') return null;
-
-  return (
-    <div>
-      <h2>People Search Filter</h2>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <select
-        value={roleFilter}
-        onChange={(e) => setRoleFilter(e.target.value)}
-      >
-        <option value="none">All roles</option>
-        <option value="admin">Admins</option>
-        <option value="member">Members</option>
-        <option value="viewer">Viewers</option>
-        <option value="guest">Guests</option>
-      </select>
-    </div>
-  );
+    if (atom === 'searchAtom') return [state.query.value, (value) => setState('query', value)];
+    if (atom === 'roleFilterAtom') return [
+      state.roleFilter.value === 'none' ? undefined : state.roleFilter.value,
+      (value) => setState('roleFilter', value || 'none')
+    ];
+    return [];
+  },
+  useAtomValue: () => {
+    const [state] = useParentState({
+      rootFilter: {
+        type: 'dropdown',
+        value: 'active',
+        options: ['active', 'inactive'],
+        label: 'Root Filter'
+      }
+    });
+    return state.rootFilter.value;
+  }
 };
 
+// Replace the actual jotai import with our mock
+const jotai = mockJotai;
+
 export default function Preview() {
-  const [state, setState] = useParentState({
-    query: {
-      type: 'string',
-      value: '',
-      label: 'Search Query'
-    },
-    roleFilter: {
-      type: 'dropdown',
-      value: 'none',
-      options: ['none', 'admin', 'member', 'viewer', 'guest'],
-      label: 'Role Filter'
-    },
-    rootFilter: {
-      type: 'dropdown',
-      value: 'active',
-      options: ['active', 'inactive'],
-      label: 'Root Filter'
-    }
-  });
-
-  const setQuery = (value: string) => setState('query', value);
-  const setRoleFilter = (value: string) => setState('roleFilter', value);
-
-  return (
-    <PeopleSearchFilter
-      query={state.query.value}
-      setQuery={setQuery}
-      roleFilter={state.roleFilter.value}
-      setRoleFilter={setRoleFilter}
-      rootFilter={state.rootFilter.value}
-    />
-  );
+  return <PeopleSearchFilter />;
 }

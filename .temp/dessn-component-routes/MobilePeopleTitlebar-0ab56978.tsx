@@ -1,18 +1,21 @@
 import React from 'react';
+import { MobilePeopleTitlebar } from '../apps/web/components/People/PeopleTitlebar.tsx';
 
-const MobilePeopleTitlebar = () => {
-  return (
-    <div className="mobile-people-titlebar">
-      <h1>Mobile People Titlebar</h1>
-      <p>This is a placeholder for the MobilePeopleTitlebar component.</p>
-    </div>
-  );
-};
+import { useParentState } from '../useIframeState.ts';
+import { Provider } from 'jotai';
 
 export default function Preview() {
+  const [state, setState] = useParentState({
+    className: {
+      type: 'string',
+      value: 'flex h-auto gap-1 py-1.5 lg:hidden',
+      label: 'Container Class Name'
+    }
+  });
+
   return (
-    <div className="flex h-auto gap-1 py-1.5 lg:hidden">
+    <Provider>
       <MobilePeopleTitlebar />
-    </div>
+    </Provider>
   );
 }

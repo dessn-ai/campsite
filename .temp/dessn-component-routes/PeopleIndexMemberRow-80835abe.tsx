@@ -1,6 +1,6 @@
 import React from 'react';
 import { PeopleIndexMemberRow } from '../apps/web/components/People/PeopleIndexMemberRow.tsx';
-import { ScopeProvider } from '../apps/web/contexts/scope.tsx';
+
 import { useParentState } from '../useIframeState.ts';
 
 export default function Preview() {
@@ -62,13 +62,11 @@ export default function Preview() {
   };
 
   return (
-    <ScopeProvider value={{ scope: 'preview' }}>
-      <ul className="max-w-2xl">
-        <PeopleIndexMemberRow
-          id={state.id.value}
-          member={member}
-        />
-      </ul>
-    </ScopeProvider>
+    <ul className="max-w-2xl">
+      <PeopleIndexMemberRow
+        id={state.id.value}
+        member={member}
+      />
+    </ul>
   );
 }

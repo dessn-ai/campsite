@@ -1,0 +1,249 @@
+User: An error occurred when rendering the component route at dessn-component-routes/CallsContent-b9be1123.tsx
+Error:
+
+# Error 1
+
+## Error Message
+Error: No QueryNormalizer set, use QueryNormalizerProvider to set oneError: No QueryNormalizer set, use QueryNormalizerProvider to set one
+
+## Stack Trace
+```
+    at useQueryNormalizer (http://localhost:5173/apps/web/utils/normy/QueryNormalizerProvider.tsx:47:11)
+    at useGetProject (http://localhost:5173/apps/web/hooks/useGetProject.ts:10:27)
+    at ProjectHovercard (http://localhost:5173/apps/web/components/InlinePost/ProjectHovercard.tsx:36:22)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:11568:26)
+    at mountIndeterminateComponent (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:14946:21)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:15934:22)
+    at beginWork$1 (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:19781:22)
+    at performUnitOfWork (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:19226:20)
+    at workLoopSync (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:19165:13)
+    at renderRootSync (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:19144:15)
+```
+
+## Component Stack
+```
+
+    at ProjectHovercard (http://localhost:5173/apps/web/components/InlinePost/ProjectHovercard.tsx:27:3)
+    at http://localhost:5173/apps/web/components/ProjectTag.tsx:25:52
+    at div
+    at http://localhost:5173/apps/web/components/Calls/index.tsx:335:46
+    at Preview (http://localhost:5173/dessn-component-routes/CallRow-b9be1123.tsx:22:29)
+    at div
+    at div
+    at ErrorBoundary (http://localhost:5173/ErrorBoundary.tsx:7:5)
+    at Suspense
+    at App (http://localhost:5173/App.tsx:22:23)
+    at ScopeProvider (http://localhost:5173/apps/web/contexts/scope.tsx:49:26)
+    at QueryClientProvider (http://localhost:5173/node_modules/.vite/deps/@tanstack_react-query.js?v=eb0b8cc8:2842:3)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=eb0b8cc8:4504:15)
+    at BrowserRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=eb0b8cc8:5253:5)
+    at ComponentWrapper (http://localhost:5173/main.tsx?t=1737609455656:30:29)
+    at div
+```
+
+              
+# Error 2
+
+## Error Message
+TypeError: Cannot read properties of null (reading 'filter')TypeError: Cannot read properties of null (reading 'filter')
+
+## Stack Trace
+```
+    at http://localhost:5173/packages/ui/src/Command/Command.tsx:576:65
+    at cb (http://localhost:5173/packages/ui/src/Command/Command.tsx:980:20)
+    at mountSyncExternalStore (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:11906:28)
+    at Object.useSyncExternalStore (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:12593:22)
+    at Object.useSyncExternalStore (http://localhost:5173/node_modules/.vite/deps/chunk-6VRH24VT.js?v=eb0b8cc8:1120:29)
+    at useCmdk (http://localhost:5173/packages/ui/src/Command/Command.tsx:981:16)
+    at Item2 (http://localhost:5173/packages/ui/src/Command/Command.tsx:576:18)
+    at renderWithHooks (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:11568:26)
+    at updateForwardRef (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:14345:28)
+    at beginWork (http://localhost:5173/node_modules/.vite/deps/chunk-6UPLEOQD.js?v=eb0b8cc8:15966:22)
+```
+
+## Component Stack
+```
+
+    at ProjectHovercard (http://localhost:5173/apps/web/components/InlinePost/ProjectHovercard.tsx:27:3)
+    at http://localhost:5173/apps/web/components/ProjectTag.tsx:25:52
+    at div
+    at http://localhost:5173/apps/web/components/Calls/index.tsx:335:46
+    at Preview (http://localhost:5173/dessn-component-routes/CallRow-b9be1123.tsx:22:29)
+    at div
+    at div
+    at ErrorBoundary (http://localhost:5173/ErrorBoundary.tsx:7:5)
+    at Suspense
+    at App (http://localhost:5173/App.tsx:22:23)
+    at ScopeProvider (http://localhost:5173/apps/web/contexts/scope.tsx:49:26)
+    at QueryClientProvider (http://localhost:5173/node_modules/.vite/deps/@tanstack_react-query.js?v=eb0b8cc8:2842:3)
+    at Router (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=eb0b8cc8:4504:15)
+    at BrowserRouter (http://localhost:5173/node_modules/.vite/deps/react-router-dom.js?v=eb0b8cc8:5253:5)
+    at ComponentWrapper (http://localhost:5173/main.tsx?t=1737609455656:30:29)
+    at div
+```
+
+              
+
+Component file at dessn-components/CallsContent-b9be1123.tsx:
+import React from 'react';
+import { CallsContent } from '../apps/web/components/Calls/index.tsx';
+
+import { useParentState } from '../useIframeState.ts';
+
+export default function Preview() {
+  const [state, setState] = useParentState({
+    isSearching: {
+      type: 'boolean',
+      value: false,
+      label: 'Is Searching'
+    },
+    project: {
+      type: 'dropdown',
+      value: 'with-project',
+      options: ['with-project', 'without-project'],
+      label: 'Project State'
+    }
+  });
+
+  const mockProject = state.project.value === 'with-project' ? {
+    id: 'project-1',
+    name: 'Sample Project',
+    description: 'A sample project description',
+    created_at: '2024-01-01T00:00:00Z',
+    archived_at: null,
+    archived: false,
+    last_activity_at: '2024-01-01T00:00:00Z',
+    slack_channel_id: null,
+    posts_count: 10,
+    cover_photo_url: null,
+    url: '/sample-project',
+    accessory: null,
+    private: false,
+    personal: false,
+    is_general: false,
+    is_default: false,
+    contributors_count: 5,
+    members_and_guests_count: 10,
+    members_count: 8,
+    guests_count: 2,
+    call_room_url: null,
+    message_thread_id: null,
+    organization_id: 'org-1',
+    viewer_has_favorited: false,
+    viewer_can_archive: true,
+    viewer_can_destroy: true,
+    viewer_can_unarchive: true,
+    viewer_can_update: true,
+    viewer_has_subscribed: true,
+    viewer_subscription: 'posts_and_comments',
+    viewer_is_member: true,
+    unread_for_viewer: false,
+    slack_channel: null,
+    type_name: 'Project',
+    viewer_display_preferences: null,
+    display_preferences: {
+      display_reactions: true,
+      display_attachments: true,
+      display_comments: true,
+      display_resolved: true
+    }
+  } : undefined;
+
+  const mockGetCalls = {
+    data: { pages: [] },
+    hasNextPage: false,
+    isFetching: false,
+    isLoading: false,
+    isFetchingNextPage: false,
+    isError: false,
+    fetchNextPage: () => Promise.resolve()
+  };
+
+  return (
+    <CallsContent
+      getCalls={mockGetCalls}
+      isSearching={state.isSearching.value}
+      project={mockProject}
+    />
+  );
+}
+
+
+
+Assistant: To fix the rendering errors, we need to address two main issues:
+
+1. The missing QueryNormalizer
+2. The null property being accessed in the Command component
+
+Let's start by fixing these issues in the Preview component. We'll modify the code to provide a mock QueryNormalizer and ensure that the Command component doesn't try to access properties of null.
+
+I'll use the getFile and updateFile functions to make the necessary changes:[Tool Call: getFile]: {"filePath":"dessn-components/CallsContent-b9be1123.tsx"}
+
+Tool: [Tool Result: getFile]: "Error reading file: ENOENT: No such file or directory"
+
+Assistant: To fix the rendering errors, we need to address two main issues:
+
+1. The missing QueryNormalizer
+2. The null property being accessed in the Command component
+
+Let's start by fixing these issues in the Preview component. We'll modify the code to provide a mock QueryNormalizer and ensure that the Command component doesn't try to access properties of null.
+
+I'll use the getFile and updateFile functions to make the necessary changes:[Tool Call: getFile]: {"filePath":"dessn-components/CallsContent-b9be1123.tsx"}
+
+Tool: [Tool Result: getFile]: "Error reading file: ENOENT: No such file or directory"
+
+Assistant: I apologize for the confusion. It seems the file path is incorrect. Let's try with the correct path:[Tool Call: getFile]: {"filePath":"dessn-component-routes/CallsContent-b9be1123.tsx"}
+
+Tool: [Tool Result: getFile]: "import React from 'react';\nimport { CallsContent } from '../apps/web/components/Calls/index.tsx';\n\nimport { useParentState } from '../useIframeState.ts';\n\nexport default function Preview() {\n  const [state, setState] = useParentState({\n    isSearching: {\n      type: 'boolean',\n      value: false,\n      label: 'Is Searching'\n    },\n    project: {\n      type: 'dropdown',\n      value: 'with-project',\n      options: ['with-project', 'without-project'],\n      label: 'Project State'\n    }\n  });\n\n  const mockProject = state.project.value === 'with-project' ? {\n    id: 'project-1',\n    name: 'Sample Project',\n    description: 'A sample project description',\n    created_at: '2024-01-01T00:00:00Z',\n    archived_at: null,\n    archived: false,\n    last_activity_at: '2024-01-01T00:00:00Z',\n    slack_channel_id: null,\n    posts_count: 10,\n    cover_photo_url: null,\n    url: '/sample-project',\n    accessory: null,\n    private: false,\n    personal: false,\n    is_general: false,\n    is_default: false,\n    contributors_count: 5,\n    members_and_guests_count: 10,\n    members_count: 8,\n    guests_count: 2,\n    call_room_url: null,\n    message_thread_id: null,\n    organization_id: 'org-1',\n    viewer_has_favorited: false,\n    viewer_can_archive: true,\n    viewer_can_destroy: true,\n    viewer_can_unarchive: true,\n    viewer_can_update: true,\n    viewer_has_subscribed: true,\n    viewer_subscription: 'posts_and_comments',\n    viewer_is_member: true,\n    unread_for_viewer: false,\n    slack_channel: null,\n    type_name: 'Project',\n    viewer_display_preferences: null,\n    display_preferences: {\n      display_reactions: true,\n      display_attachments: true,\n      display_comments: true,\n      display_resolved: true\n    }\n  } : undefined;\n\n  const mockGetCalls = {\n    data: { pages: [] },\n    hasNextPage: false,\n    isFetching: false,\n    isLoading: false,\n    isFetchingNextPage: false,\n    isError: false,\n    fetchNextPage: () => Promise.resolve()\n  };\n\n  return (\n    <CallsContent\n      getCalls={mockGetCalls}\n      isSearching={state.isSearching.value}\n      project={mockProject}\n    />\n  );\n}"
+
+Assistant: To fix the rendering errors, we need to address two main issues:
+
+1. The missing QueryNormalizer
+2. The null property being accessed in the Command component
+
+Let's start by fixing these issues in the Preview component. We'll modify the code to provide a mock QueryNormalizer and ensure that the Command component doesn't try to access properties of null.
+
+I'll use the getFile and updateFile functions to make the necessary changes:[Tool Call: getFile]: {"filePath":"dessn-components/CallsContent-b9be1123.tsx"}
+
+Tool: [Tool Result: getFile]: "Error reading file: ENOENT: No such file or directory"
+
+Assistant: I apologize for the confusion. It seems the file path is incorrect. Let's try with the correct path:[Tool Call: getFile]: {"filePath":"dessn-component-routes/CallsContent-b9be1123.tsx"}
+
+Tool: [Tool Result: getFile]: "import React from 'react';\nimport { CallsContent } from '../apps/web/components/Calls/index.tsx';\n\nimport { useParentState } from '../useIframeState.ts';\n\nexport default function Preview() {\n  const [state, setState] = useParentState({\n    isSearching: {\n      type: 'boolean',\n      value: false,\n      label: 'Is Searching'\n    },\n    project: {\n      type: 'dropdown',\n      value: 'with-project',\n      options: ['with-project', 'without-project'],\n      label: 'Project State'\n    }\n  });\n\n  const mockProject = state.project.value === 'with-project' ? {\n    id: 'project-1',\n    name: 'Sample Project',\n    description: 'A sample project description',\n    created_at: '2024-01-01T00:00:00Z',\n    archived_at: null,\n    archived: false,\n    last_activity_at: '2024-01-01T00:00:00Z',\n    slack_channel_id: null,\n    posts_count: 10,\n    cover_photo_url: null,\n    url: '/sample-project',\n    accessory: null,\n    private: false,\n    personal: false,\n    is_general: false,\n    is_default: false,\n    contributors_count: 5,\n    members_and_guests_count: 10,\n    members_count: 8,\n    guests_count: 2,\n    call_room_url: null,\n    message_thread_id: null,\n    organization_id: 'org-1',\n    viewer_has_favorited: false,\n    viewer_can_archive: true,\n    viewer_can_destroy: true,\n    viewer_can_unarchive: true,\n    viewer_can_update: true,\n    viewer_has_subscribed: true,\n    viewer_subscription: 'posts_and_comments',\n    viewer_is_member: true,\n    unread_for_viewer: false,\n    slack_channel: null,\n    type_name: 'Project',\n    viewer_display_preferences: null,\n    display_preferences: {\n      display_reactions: true,\n      display_attachments: true,\n      display_comments: true,\n      display_resolved: true\n    }\n  } : undefined;\n\n  const mockGetCalls = {\n    data: { pages: [] },\n    hasNextPage: false,\n    isFetching: false,\n    isLoading: false,\n    isFetchingNextPage: false,\n    isError: false,\n    fetchNextPage: () => Promise.resolve()\n  };\n\n  return (\n    <CallsContent\n      getCalls={mockGetCalls}\n      isSearching={state.isSearching.value}\n      project={mockProject}\n    />\n  );\n}"
+
+Assistant: Now that we have the correct file content, let's modify it to address the issues:[Tool Call: updateFile]: {"filePath":"dessn-component-routes/CallsContent-b9be1123.tsx","content":"import React from 'react';\nimport { CallsContent } from '../apps/web/components/Calls/index.tsx';\nimport { useParentState } from '../useIframeState.ts';\n\n// Mock QueryNormalizer context\nconst QueryNormalizerContext = React.createContext({\n  normalize: (query) => query,\n  denormalize: (query) => query,\n});\n\n// Mock Command context to prevent null access\nconst CommandContext = React.createContext({\n  filter: () => true,\n  value: '',\n  // Add other necessary properties\n});\n\nexport default function Preview() {\n  const [state, setState] = useParentState({\n    isSearching: {\n      type: 'boolean',\n      value: false,\n      label: 'Is Searching'\n    },\n    project: {\n      type: 'dropdown',\n      value: 'with-project',\n      options: ['with-project', 'without-project'],\n      label: 'Project State'\n    }\n  });\n\n  const mockProject = state.project.value === 'with-project' ? {\n    id: 'project-1',\n    name: 'Sample Project',\n    description: 'A sample project description',\n    created_at: '2024-01-01T00:00:00Z',\n    archived_at: null,\n    archived: false,\n    last_activity_at: '2024-01-01T00:00:00Z',\n    slack_channel_id: null,\n    posts_count: 10,\n    cover_photo_url: null,\n    url: '/sample-project',\n    accessory: null,\n    private: false,\n    personal: false,\n    is_general: false,\n    is_default: false,\n    contributors_count: 5,\n    members_and_guests_count: 10,\n    members_count: 8,\n    guests_count: 2,\n    call_room_url: null,\n    message_thread_id: null,\n    organization_id: 'org-1',\n    viewer_has_favorited: false,\n    viewer_can_archive: true,\n    viewer_can_destroy: true,\n    viewer_can_unarchive: true,\n    viewer_can_update: true,\n    viewer_has_subscribed: true,\n    viewer_subscription: 'posts_and_comments',\n    viewer_is_member: true,\n    unread_for_viewer: false,\n    slack_channel: null,\n    type_name: 'Project',\n    viewer_display_preferences: null,\n    display_preferences: {\n      display_reactions: true,\n      display_attachments: true,\n      display_comments: true,\n      display_resolved: true\n    }\n  } : undefined;\n\n  const mockGetCalls = {\n    data: { pages: [] },\n    hasNextPage: false,\n    isFetching: false,\n    isLoading: false,\n    isFetchingNextPage: false,\n    isError: false,\n    fetchNextPage: () => Promise.resolve()\n  };\n\n  return (\n    <QueryNormalizerContext.Provider value={{ normalize: (query) => query, denormalize: (query) => query }}>\n      <CommandContext.Provider value={{ filter: () => true, value: '' }}>\n        <CallsContent\n          getCalls={mockGetCalls}\n          isSearching={state.isSearching.value}\n          project={mockProject}\n        />\n      </CommandContext.Provider>\n    </QueryNormalizerContext.Provider>\n  );\n}"}
+
+Tool: [Tool Result: updateFile]: "Update successful - component now renders without errors"
+
+Assistant: To fix the rendering errors, we need to address two main issues:
+
+1. The missing QueryNormalizer
+2. The null property being accessed in the Command component
+
+Let's start by fixing these issues in the Preview component. We'll modify the code to provide a mock QueryNormalizer and ensure that the Command component doesn't try to access properties of null.
+
+I'll use the getFile and updateFile functions to make the necessary changes:[Tool Call: getFile]: {"filePath":"dessn-components/CallsContent-b9be1123.tsx"}
+
+Tool: [Tool Result: getFile]: "Error reading file: ENOENT: No such file or directory"
+
+Assistant: I apologize for the confusion. It seems the file path is incorrect. Let's try with the correct path:[Tool Call: getFile]: {"filePath":"dessn-component-routes/CallsContent-b9be1123.tsx"}
+
+Tool: [Tool Result: getFile]: "import React from 'react';\nimport { CallsContent } from '../apps/web/components/Calls/index.tsx';\n\nimport { useParentState } from '../useIframeState.ts';\n\nexport default function Preview() {\n  const [state, setState] = useParentState({\n    isSearching: {\n      type: 'boolean',\n      value: false,\n      label: 'Is Searching'\n    },\n    project: {\n      type: 'dropdown',\n      value: 'with-project',\n      options: ['with-project', 'without-project'],\n      label: 'Project State'\n    }\n  });\n\n  const mockProject = state.project.value === 'with-project' ? {\n    id: 'project-1',\n    name: 'Sample Project',\n    description: 'A sample project description',\n    created_at: '2024-01-01T00:00:00Z',\n    archived_at: null,\n    archived: false,\n    last_activity_at: '2024-01-01T00:00:00Z',\n    slack_channel_id: null,\n    posts_count: 10,\n    cover_photo_url: null,\n    url: '/sample-project',\n    accessory: null,\n    private: false,\n    personal: false,\n    is_general: false,\n    is_default: false,\n    contributors_count: 5,\n    members_and_guests_count: 10,\n    members_count: 8,\n    guests_count: 2,\n    call_room_url: null,\n    message_thread_id: null,\n    organization_id: 'org-1',\n    viewer_has_favorited: false,\n    viewer_can_archive: true,\n    viewer_can_destroy: true,\n    viewer_can_unarchive: true,\n    viewer_can_update: true,\n    viewer_has_subscribed: true,\n    viewer_subscription: 'posts_and_comments',\n    viewer_is_member: true,\n    unread_for_viewer: false,\n    slack_channel: null,\n    type_name: 'Project',\n    viewer_display_preferences: null,\n    display_preferences: {\n      display_reactions: true,\n      display_attachments: true,\n      display_comments: true,\n      display_resolved: true\n    }\n  } : undefined;\n\n  const mockGetCalls = {\n    data: { pages: [] },\n    hasNextPage: false,\n    isFetching: false,\n    isLoading: false,\n    isFetchingNextPage: false,\n    isError: false,\n    fetchNextPage: () => Promise.resolve()\n  };\n\n  return (\n    <CallsContent\n      getCalls={mockGetCalls}\n      isSearching={state.isSearching.value}\n      project={mockProject}\n    />\n  );\n}"
+
+Assistant: Now that we have the correct file content, let's modify it to address the issues:[Tool Call: updateFile]: {"filePath":"dessn-component-routes/CallsContent-b9be1123.tsx","content":"import React from 'react';\nimport { CallsContent } from '../apps/web/components/Calls/index.tsx';\nimport { useParentState } from '../useIframeState.ts';\n\n// Mock QueryNormalizer context\nconst QueryNormalizerContext = React.createContext({\n  normalize: (query) => query,\n  denormalize: (query) => query,\n});\n\n// Mock Command context to prevent null access\nconst CommandContext = React.createContext({\n  filter: () => true,\n  value: '',\n  // Add other necessary properties\n});\n\nexport default function Preview() {\n  const [state, setState] = useParentState({\n    isSearching: {\n      type: 'boolean',\n      value: false,\n      label: 'Is Searching'\n    },\n    project: {\n      type: 'dropdown',\n      value: 'with-project',\n      options: ['with-project', 'without-project'],\n      label: 'Project State'\n    }\n  });\n\n  const mockProject = state.project.value === 'with-project' ? {\n    id: 'project-1',\n    name: 'Sample Project',\n    description: 'A sample project description',\n    created_at: '2024-01-01T00:00:00Z',\n    archived_at: null,\n    archived: false,\n    last_activity_at: '2024-01-01T00:00:00Z',\n    slack_channel_id: null,\n    posts_count: 10,\n    cover_photo_url: null,\n    url: '/sample-project',\n    accessory: null,\n    private: false,\n    personal: false,\n    is_general: false,\n    is_default: false,\n    contributors_count: 5,\n    members_and_guests_count: 10,\n    members_count: 8,\n    guests_count: 2,\n    call_room_url: null,\n    message_thread_id: null,\n    organization_id: 'org-1',\n    viewer_has_favorited: false,\n    viewer_can_archive: true,\n    viewer_can_destroy: true,\n    viewer_can_unarchive: true,\n    viewer_can_update: true,\n    viewer_has_subscribed: true,\n    viewer_subscription: 'posts_and_comments',\n    viewer_is_member: true,\n    unread_for_viewer: false,\n    slack_channel: null,\n    type_name: 'Project',\n    viewer_display_preferences: null,\n    display_preferences: {\n      display_reactions: true,\n      display_attachments: true,\n      display_comments: true,\n      display_resolved: true\n    }\n  } : undefined;\n\n  const mockGetCalls = {\n    data: { pages: [] },\n    hasNextPage: false,\n    isFetching: false,\n    isLoading: false,\n    isFetchingNextPage: false,\n    isError: false,\n    fetchNextPage: () => Promise.resolve()\n  };\n\n  return (\n    <QueryNormalizerContext.Provider value={{ normalize: (query) => query, denormalize: (query) => query }}>\n      <CommandContext.Provider value={{ filter: () => true, value: '' }}>\n        <CallsContent\n          getCalls={mockGetCalls}\n          isSearching={state.isSearching.value}\n          project={mockProject}\n        />\n      </CommandContext.Provider>\n    </QueryNormalizerContext.Provider>\n  );\n}"}
+
+Tool: [Tool Result: updateFile]: "Update successful - component now renders without errors"
+
+Assistant: Great! The component now renders without errors. Let's go through the changes made to fix the issues:
+
+1. We added a mock QueryNormalizerContext to address the "No QueryNormalizer set" error. This context provides a simple normalize and denormalize function that just returns the query as-is.
+
+2. We added a mock CommandContext to prevent the "Cannot read properties of null (reading 'filter')" error. This context provides a simple filter function that always returns true and an empty string for the value.
+
+3. We wrapped the CallsContent component with both the QueryNormalizerContext.Provider and CommandContext.Provider to provide the necessary context values.
+
+These changes should resolve both errors:
+1. The "No QueryNormalizer set" error is fixed by providing a mock QueryNormalizer through the context.
+2. The "Cannot read properties of null (reading 'filter')" error is fixed by providing a mock Command context with a filter function.
+
+The component should now render without these errors. If you encounter any other issues or need further modifications, please let me know, and I'll be happy to help!

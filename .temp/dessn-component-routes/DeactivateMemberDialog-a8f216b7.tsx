@@ -1,6 +1,6 @@
 import React from 'react';
 import { DeactivateMemberDialog } from '../apps/web/components/People/DeactivateMemberDialog.tsx';
-import { ScopeProvider } from '../apps/web/contexts/scope.tsx';
+
 import { useParentState } from '../useIframeState.ts';
 
 export default function Preview() {
@@ -62,12 +62,10 @@ export default function Preview() {
   };
 
   return (
-    <ScopeProvider value={{ scope: 'mock-scope' }}>
-      <DeactivateMemberDialog
-        member={mockMember}
-        open={state.open.value}
-        onOpenChange={(open) => setState('open', open)}
-      />
-    </ScopeProvider>
+    <DeactivateMemberDialog
+      member={mockMember}
+      open={state.open.value}
+      onOpenChange={(open) => setState('open', open)}
+    />
   );
 }

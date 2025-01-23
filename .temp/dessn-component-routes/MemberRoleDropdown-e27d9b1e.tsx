@@ -1,7 +1,7 @@
 import React from 'react';
 import { MemberRoleDropdown } from '../apps/web/components/People/MemberRoleDropdown.tsx';
+
 import { useParentState } from '../useIframeState.ts';
-import { ScopeProvider } from '../apps/web/contexts/scope.tsx';
 
 export default function Preview() {
   const [state, setState] = useParentState({
@@ -36,17 +36,10 @@ export default function Preview() {
     }
   };
 
-  const mockScope = {
-    organizationId: 'mock-org-id',
-    // Add other required properties here
-  };
-
   return (
-    <ScopeProvider value={mockScope}>
-      <MemberRoleDropdown
-        member={mockMember}
-        value={state.role.value}
-      />
-    </ScopeProvider>
+    <MemberRoleDropdown
+      member={mockMember}
+      value={state.role.value}
+    />
   );
 }
